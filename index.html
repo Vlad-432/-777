@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Арифмометр</title>
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="theme-color" content="#17191c">
+</head>
+<body>
+
+  <main class="machine" role="application" aria-label="Калькулятор в виде арифмометра">
+
+    <div class="machine__tape-slot">
+      <div class="tape" id="tape">
+        <div class="tape__inner" id="tapeInner">
+          <p class="tape__line tape__line--start">— НОВЫЙ РАСЧЁТ —</p>
+        </div>
+      </div>
+      <div class="tape__tear"></div>
+    </div>
+
+    <div class="machine__readout">
+      <span class="machine__readout-label">ИТОГО</span>
+      <div class="machine__display" id="display">0</div>
+    </div>
+
+    <div class="machine__panel">
+
+      <div class="machine__screws">
+        <span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="keys">
+        <button class="key key--wide key--danger" data-action="clear">C</button>
+        <button class="key key--ghost" data-action="negate">+/−</button>
+        <button class="key key--ghost" data-action="percent">%</button>
+        <button class="key key--op" data-op="÷"><span>÷</span></button>
+
+        <button class="key" data-num="7">7</button>
+        <button class="key" data-num="8">8</button>
+        <button class="key" data-num="9">9</button>
+        <button class="key key--op" data-op="×"><span>×</span></button>
+
+        <button class="key" data-num="4">4</button>
+        <button class="key" data-num="5">5</button>
+        <button class="key" data-num="6">6</button>
+        <button class="key key--op" data-op="−"><span>−</span></button>
+
+        <button class="key" data-num="1">1</button>
+        <button class="key" data-num="2">2</button>
+        <button class="key" data-num="3">3</button>
+        <button class="key key--op" data-op="+"><span>+</span></button>
+
+        <button class="key" data-num="0">0</button>
+        <button class="key" data-action="dot">,</button>
+        <button class="key key--eq" data-action="equals" aria-label="Равно">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3">
+            <line x1="4" y1="9" x2="20" y2="9"/>
+            <line x1="4" y1="15" x2="20" y2="15"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="machine__plate">МОДЕЛЬ 1К · РУЧНОЙ СЧЁТ</div>
+    </div>
+
+  </main>
+
+<script src="script.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('service-worker.js').catch(() => {});
+    });
+  }
+</script>
+</body>
+</html>
